@@ -11,6 +11,15 @@ modules:
       properties:
           TARGET_CONTAINER: '~{hdi-container-name}'
 
+
+ - name: Node
+   type: nodejs
+   path: Node
+   provides:
+    - name: Node_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: Parking-Database-hdi-container
    properties:
