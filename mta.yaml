@@ -1,0 +1,18 @@
+ID: Parking
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: Parking-Database
+   type: hdb
+   path: Database
+   requires:
+    - name: Parking-Database-hdi-container
+      properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+
+resources:
+ - name: Parking-Database-hdi-container
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

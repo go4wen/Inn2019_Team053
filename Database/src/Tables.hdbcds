@@ -1,0 +1,14 @@
+namespace Parking.Database;
+
+context Tables {
+
+    entity T_BOOKINGS {
+        key BOOKINGNUMBER : Integer generated always as identity(start with 1000000 increment by 1);
+            BAYNUMBER     : String(20)   not null;
+            REGO          : String(20)   not null;
+            CREATION      : UTCTimestamp not null default current_timestamp;
+            BOOK_FROM     : UTCTimestamp not null;
+            BOOK_TO       : UTCTimestamp not null;
+            STATUS        : Integer      default 1;
+    };
+};

@@ -1,0 +1,9 @@
+{
+	"role": {
+		"name": "ext_access_g#",
+		"schema_privileges": [{
+			"privileges_with_grant_option": ["SELECT CDS METADATA","SELECT METADATA","SELECT", "INSERT", "DELETE", "UPDATE"]
+		}]
+
+	}
+}

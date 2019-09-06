@@ -1,0 +1,9 @@
+{
+	"role": {
+		"name": "ext_access",
+		"schema_privileges": [{
+			"privileges": ["SELECT CDS METADATA","SELECT METADATA","SELECT", "INSERT", "DELETE", "UPDATE"]
+		}]
+
+	}
+}
