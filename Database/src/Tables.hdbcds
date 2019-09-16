@@ -11,4 +11,23 @@ context Tables {
             BOOK_TO       : UTCTimestamp not null;
             STATUS        : Integer      default 1;
     };
+    
+        entity T_EMPLOYEE {
+            REGO          : String(20)   not null;
+            USERID        : String(20)   not null;
+            FIRST_NAME    : String(20)   not null;
+            LAST_NAME     : String(20)   not null;
+            DEPARTMENT    : String(20)   ;
+            CONTACT        : Integer   not nulL ;
+    };
+    
+    
+     entity T_IOT_MAPPING {
+            BAYNUMBER     : String(20)   not null;
+            SENSOR_ID      : Integer   ;
+            CAMERA_ID      : Integer   ;
+    };
+    
+   
+  
 };

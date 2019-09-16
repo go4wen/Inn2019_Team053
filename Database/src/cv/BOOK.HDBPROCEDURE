@@ -1,0 +1,11 @@
+PROCEDURE "BOOK.HDBPROCEDURE"( IN BAY nvarchar(20),in NUSERID nvarchar(20) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   --READS SQL DATA 
+   AS
+BEGIN
+	
+   insert into "Parking.Database::Tables.T_BOOKINGS" (select BAY,REGO,'','','',0 from "Parking.Database::Tables.T_EMPLOYEE" where USERID = NUSERID);
+  
+END

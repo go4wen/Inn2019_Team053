@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="next_bay" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="next_bay"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Parking.Database::Tables.T_IOT_MAPPING">
+    <resourceUri>Parking.Database::Tables.T_IOT_MAPPING</resourceUri>
+  </DataSource>
+  <DataSource id="Parking.Database::Tables.T_BOOKINGS">
+    <resourceUri>Parking.Database::Tables.T_BOOKINGS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="BAYNUMBER"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Parking.Database::Tables.T_IOT_MAPPING"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="BAYNUMBER"/>
+    
+      <viewAttribute id="REGO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Parking.Database::Tables.T_BOOKINGS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="leftOuter" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="BAYNUMBER"/>
+      <viewAttribute id="REGO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BAYNUMBER" source="BAYNUMBER"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGO" source="REGO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BAYNUMBER" source="BAYNUMBER"/>
+    </input>
+    <filter>&quot;REGO&quot;is null</filter>
+    <joinAttribute name="BAYNUMBER"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="BAYNUMBER" hidden="true" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BAYNUMBER"/>
+      <keyMapping columnObjectName="Join_1" columnName="BAYNUMBER"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures>
+    <measure id="CC_1" order="1" aggregationType="min" measureType="simple" aggregatable="true" datatype="TINYINT" expressionLanguage="SQL" engineAggregation="sum">
+      <formula>TO_INT(&quot;BAYNUMBER&quot;)</formula>
+      
+      
+      
+      </measure>
+  </calculatedMeasures>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-243" y="375"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="9" y="375"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-136" y="278"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="154.86279296875"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="154.86279296875"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
