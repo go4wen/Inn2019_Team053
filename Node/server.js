@@ -3,7 +3,16 @@
 
 var xsjs  = require("@sap/xsjs");
 var xsenv = require("@sap/xsenv");
+const axios = require("axios");
 var port  = process.env.PORT || 3000;
+
+
+async function getGithubData() {
+  let res = await axios.get('https://api.github.com/users/KrunalLathiya');
+  console.log(res.data.login);
+}
+
+getGithubData();
 
 var options = {
 	anonymous : true, // remove to authenticate calls

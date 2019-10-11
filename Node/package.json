@@ -4,15 +4,16 @@
     "@sap/xsjs": "^5.2.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "recastai": "^3.1.1"
     
+    "axios": "^0.19.0"
+   
   },
   "description": "my description",
   "devDependencies": {
     "@sap/xsjs-test": "^3.0.2",
-    "eslint": "^3.2.0",
-    "eslint-config-zavatta": "^4.2.0",
-    "eslint-plugin-import": "^1.6.1",
+    "eslint": "^6.5.1",
+    "eslint-config-zavatta": "^6.0.3",
+    "eslint-plugin-import": "^2.18.2",
     "nodemon": "^1.11.0"
   },
   "eslintConfig": {

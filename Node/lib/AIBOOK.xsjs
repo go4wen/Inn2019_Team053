@@ -4,7 +4,7 @@ var aCmd = $.request.body.asString( );
 var obj=JSON.parse(aCmd);
 
 var NUSERID= obj.NUSERID ;
-
+console.log(NUSERID);
 function getTxtData()
 {
     var connection = $.hdb.getConnection();
@@ -40,13 +40,16 @@ function getTxtData()
    
     }
 
-    var body_BAY = 'Bay ' +BAY + ' booked for you';
+    var body_BAY = 'Bay ' +BAY + ' booked for you, Booking confirmation will also be sent to you via SMS.';
     body_BAY =JSON.stringify(body_BAY);
    console.log(body_BAY);
     //return body_BAY;
     var js = '{ "replies": [    {      "type": "text",      "content": ' +body_BAY+ '  }  ],  "conversation": {    "language": "en",    "memory": {      "user": "Bob"   }  }}';
 console.log(js);
-//console.log(JSON.stringify(js));
+console.log(JSON.stringify(js));
+ 
+
+
 return js;
 }
 function doGet()
