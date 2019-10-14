@@ -17,9 +17,10 @@ modules:
           url: '${default-url}'
     requires:
       - name: Parking-Database-hdi-container
-
-  
-
+  - name: di-local-npm-registry
+    properties:
+      UPSTREAM_LINK: "http://registry.npmjs.org"
+      SAPUPSTREAM_LINK: "https://npm.sap.com"
 resources:
   - name: Parking-Database-hdi-container
     properties:
