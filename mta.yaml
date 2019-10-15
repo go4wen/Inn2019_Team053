@@ -1,6 +1,6 @@
 ID: Parking
 _schema-version: '2.1'
-version: 0.0.1
+version: 0.0.2
 modules:
   - name: Parking-Database
     type: hdb
@@ -17,10 +17,6 @@ modules:
           url: '${default-url}'
     requires:
       - name: Parking-Database-hdi-container
-  - name: di-local-npm-registry
-    properties:
-      UPSTREAM_LINK: "http://registry.npmjs.org"
-      SAPUPSTREAM_LINK: "https://npm.sap.com"
 resources:
   - name: Parking-Database-hdi-container
     properties:
