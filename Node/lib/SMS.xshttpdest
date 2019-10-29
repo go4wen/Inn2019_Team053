@@ -1,0 +1,9 @@
+host = "rfcmail2aawip7sd76.jp1.hana.ondemand.com";
+port = 443;
+useSSL = true;
+proxyType = none;
+proxyHost = "proxy";
+proxyPort = 8080;
+authType = none;
+timeout = 0;
+description = "SMS Gateway";

@@ -18,7 +18,9 @@ context Tables {
             FIRST_NAME    : String(20)   not null;
             LAST_NAME     : String(20)   not null;
             DEPARTMENT    : String(20)   ;
-            CONTACT        : Integer   not nulL ;
+            SUBURB        : String(50)   ;
+            MEETING       : Boolean      ;
+            CONTACT       : Integer   not nulL ;
     };
     
     

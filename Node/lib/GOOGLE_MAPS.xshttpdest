@@ -1,0 +1,9 @@
+description = "Google Maps API";
+host = "maps.googleapis.com";
+port = 443;
+useSSL = true;
+proxyType = none;
+proxyHost = "proxy";
+proxyPort = 8080;
+authType = none;
+timeout = 0;

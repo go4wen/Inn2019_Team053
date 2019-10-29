@@ -27,7 +27,8 @@ json.replies.push({type: "text", content: body});
 json.conversation = {
 	language: "en",
 	memory: {
-		user: text_name
+		user_name: text_name,
+		user_id: NUSERID
 	}
 };
 

@@ -17,8 +17,24 @@ modules:
           url: '${default-url}'
     requires:
       - name: Parking-Database-hdi-container
+      - name: SMS
+      - name: GOOGLE_MAPS
 resources:
   - name: Parking-Database-hdi-container
     properties:
       hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
+  - name: SMS
+    type: org.cloudfoundry.existing-service
+    description: SMS Gateway
+    parameters:
+      service-name: SMS
+    properties:
+      SMS_SERVICE: '${service-name}'
+  - name: GOOGLE_MAPS
+    type: org.cloudfoundry.existing-service
+    description: Google Maps Api
+    parameters:
+      service-name: GOOGLE_MAPS
+    properties:
+      GOOGLE_MAPS_SERVICE: '${service-name}'
