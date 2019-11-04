@@ -25,7 +25,7 @@ var num_parking = rs[0]["NUM_PARKING"];
 // Check travel times from Google API
 var google_dest = $.net.http.readDestination("GOOGLE_MAPS");
 var google_client = new $.net.http.Client();
-var google_req = new $.web.WebRequest($.net.http.GET, "/maps/api/directions/json?origin=" + suburb_url + "&destination=" + office_url + "&key=AIzaSyAguu3pLOT6EGS2mqafMbGvZTXpUC8l2J4");
+var google_req = new $.web.WebRequest($.net.http.GET, "/maps/api/directions/json?origin=" + suburb_url + "&destination=" + office_url + "&key=AIzaSyCToI-N1w0rup_vqEe1AkpmLdpgvTVeI2A");
 google_client.request(google_req, google_dest);
 var google_res = google_client.getResponse();
 //console.log("Google API response: " + google_res.status);
@@ -34,7 +34,7 @@ var directions = JSON.parse(google_res.body.asString());
 var time_car = directions.routes[0].legs[0].duration.value;
 //console.log("time car (s): " + time_car);
 
-google_req = new $.web.WebRequest($.net.http.GET, "/maps/api/directions/json?origin=" + suburb_url + "&destination=" + office_url + "&mode=transit&key=AIzaSyAguu3pLOT6EGS2mqafMbGvZTXpUC8l2J4");
+google_req = new $.web.WebRequest($.net.http.GET, "/maps/api/directions/json?origin=" + suburb_url + "&destination=" + office_url + "&mode=transit&key=AIzaSyCToI-N1w0rup_vqEe1AkpmLdpgvTVeI2A");
 google_client.request(google_req, google_dest);
 var google_res = google_client.getResponse();
 //console.log("Google API response: " + google_res.status);
@@ -43,7 +43,7 @@ var directions = JSON.parse(google_res.body.asString());
 var time_pt = directions.routes[0].legs[0].duration.value;
 //console.log("time transit (s): " + time_pt);
 
-google_req = new $.web.WebRequest($.net.http.GET, "/maps/api/directions/json?origin=" + suburb_url + "&destination=" + office_url + "&mode=walking&key=AIzaSyAguu3pLOT6EGS2mqafMbGvZTXpUC8l2J4");
+google_req = new $.web.WebRequest($.net.http.GET, "/maps/api/directions/json?origin=" + suburb_url + "&destination=" + office_url + "&mode=walking&key=AIzaSyCToI-N1w0rup_vqEe1AkpmLdpgvTVeI2A");
 google_client.request(google_req, google_dest);
 var google_res = google_client.getResponse();
 //console.log("Google API response: " + google_res.status);
