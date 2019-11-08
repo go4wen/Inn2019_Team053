@@ -54,19 +54,59 @@ var time_walk = directions.routes[0].legs[0].duration.value;
 
 var body_commute = [];
 
-time_car  = Math.round(time_car/60);
-time_pt   = Math.round(time_pt/60);
-//var time_ride = 29;
-time_walk = Math.round(time_walk/60);
-var steps = time_walk * 120;
+var time_car_m  = Math.round(time_car/60);
+var time_car_h  = Math.floor(time_car_m/60);
+var time_pt_m   = Math.round(time_pt/60);
+var time_pt_h   = Math.floor(time_pt_m/60);
+var time_walk_m = Math.round(time_walk/60);
+var time_walk_h = Math.floor(time_walk_m/60);
 
-body_commute.push(first_name + ', your commute from ' + suburb + ' by car will take ' + time_car + ' minutes. Taking public transport would take ' + time_pt + ' minutes and if you decide to walk, it would take you ' + time_walk + ' minutes, but it would bring you ' + steps + ' steps closer to your target of 10000 steps per day. ');
+var steps = time_walk_m * 120;
+
+var time_car_str = '';
+var time_pt_str = '';
+var time_walk_str = '';
+
+if (time_car_h > 1) {
+	time_car_str += time_car_h + ' hours';
+} else if (time_car_h > 0) {
+	time_car_str += time_car_h + ' hour';
+}
+if (time_car_m % 60 > 1) {
+	time_car_str += ((time_car_h > 0) ? ' and ' : '') + (time_car_m % 60) + ' minutes';
+} else if (time_car_m % 60 > 0) {
+	time_car_str += ((time_car_h > 0) ? ' and ' : '') + (time_car_m % 60) + ' minute';
+}
+
+if (time_walk_h > 1) {
+	time_walk_str += time_walk_h + ' hours';
+} else if (time_walk_h > 0) {
+	time_walk_str += time_walk_h + ' hour';
+}
+if (time_walk_m % 60 > 1) {
+	time_walk_str += ((time_walk_h > 0) ? ' and ' : '') + (time_walk_m % 60) + ' minutes';
+} else if (time_walk_m % 60 > 0) {
+	time_walk_str += ((time_walk_h > 0) ? ' and ' : '') + (time_walk_m % 60) + ' minute';
+}
+
+if (time_pt_h > 1) {
+	time_pt_str += time_pt_h + ' hours';
+} else if (time_pt_h > 0) {
+	time_pt_str += time_pt_h + ' hour';
+}
+if (time_pt_m % 60 > 1) {
+	time_pt_str += ((time_pt_h > 0) ? ' and ' : '') + (time_pt_m % 60) + ' minutes';
+} else if (time_pt_m % 60 > 0) {
+	time_pt_str += ((time_pt_h > 0) ? ' and ' : '') + (time_pt_m % 60) + ' minute';
+}
+
+body_commute.push(first_name + ', your commute from ' + suburb + ' by car will take ' + time_car_str + '. Taking public transport would take ' + time_pt_str + ' and if you decide to walk, it would take you ' + time_walk_str + ', but it would also bring you ' + steps + ' steps closer to your target of 10000 steps per day. ');
 
 // Pick a phrase
 var pick = Math.floor(Math.random() * body_commute.length);
 var body = body_commute[pick];
 
-if (num_parking > 3) {
+if (num_parking > 7) {
 	body = body + ' There are ' + num_parking + ' parking spots availble in the office. Do you want to reserve a bay, or use some more ecological way to commute?';
 } 
 else if (num_parking > 0) {

@@ -41,8 +41,8 @@ if (meeting) {
 	body_meeting.push('I found a meeting in Outlook at ' + time_meeting + ' which is marked with attendance required so how about enjoying some Melbourne traffic?');
 	body_meeting.push('You have a one on one meeting with your manager at ' + time_meeting + '. Your bonus will be calculated in 2 months so I recommend to show up in the office');
 } else {
-	body_meeting.push("You are lucky all of your meetings are flagged as online meetings today. Would you consider to work from home today and we could save lots of energy in the office building for a little appreciate award?");
-	body_meeting.push("Based on your calendar nobody want's to meet you in person today. Don't worry I still like you! You would help the environment by working from home today and I can offer you an appreciate award for saving SAP running office costs! Deal?");
+	body_meeting.push("You are lucky all of your meetings are flagged as online meetings today. Would you consider to work from home today and we could save lots of energy not opening level 3 in the office for a little appreciate award?");
+	body_meeting.push("Based on your calendar nobody want's to meet you in person today. Don't worry I still like you! You would help the environment and SAP by working from home today and I can offer you an appreciate award for saving SAP running costs for level 3! Deal?");
 }
 // Pick a phrase
 var pick = Math.floor(Math.random() * body_meeting.length);
